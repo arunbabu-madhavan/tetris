@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Plain Old Tetris</title>
+        <style>
+        body{
+            font-family: sans-serif;
+            font-size: 2em;
+            background-color: #202028;
+            color: #fff;
+            text-align: center;
+            justify-content: center;
+            display: flex;
+        }
+        canvas{
+            border: solid .2em #fff;
+        }
+        .tetris{
+       
+            height: 90vh;
+        }
+        div.game{
+            display: flex;
+            flex-direction: row;
+            margin-left: 0pt;
+            width: 100%;
+         
+           
+        }
+        div.game > div.player{
+            display: flex;
+            flex-direction: row;
+            margin-left: 0pt;
+            flex: 1;
+            justify-content: center;
+
+            
+        }
+        div.game > div.player > div:first-child{
+            margin-right: 10pt;
+            margin-top: 40pt;
+            display: none;
+        }
+        div.game > div.player:first-child > div:last-child{
+            margin-right: 10pt;
+           
+        }
+
+        @media screen and (min-width: 768px) {
+            /* div.game{
+                margin-left: -60pt;
+            } */
+            div.game > div.player > div:first-child{
+            display: block;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="game">
+    <div class="player">
+        <div>
+       
+        <canvas class="nextPiece" height="180" width="150"></canvas>
+        <div class="score"></div>
+    </div>
+    <div>
+        <canvas class="tetris" height="420" width="240"></canvas>
+    </div>
+    </div>
+
+    <div class="player">
+        <div>
+       
+        <canvas class="nextPiece" height="180" width="150"></canvas>
+        <div class="score"></div>
+    </div>
+    <div>
+        <canvas class="tetris" height="420" width="240"></canvas>
+    </div>
+    </div>
+</div>
+    <script src="arena.js"></script>
+    <script src="controls.js"></script>
+    <script src="player.js"></script>
+    <script src="tetrismanager.js"></script>
+    <script src="tetris.js"></script>
+    <script src="main.js"></script>
+    </body>
+</html>

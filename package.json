@@ -1,0 +1,23 @@
+{
+  "name": "tetris",
+  "version": "1.0.0",
+  "description": "plain old tetris",
+  "main": "tetris.js",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arunbabu-madhavan/tetris.git"
+  },
+  "author": "Arun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arunbabu-madhavan/tetris/issues"
+  },
+  "homepage": "https://github.com/arunbabu-madhavan/tetris#readme"
+}
