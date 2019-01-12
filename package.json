@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/arunbabu-madhavan/tetris/issues"
   },
-  "homepage": "https://github.com/arunbabu-madhavan/tetris#readme"
+  "homepage": "https://github.com/arunbabu-madhavan/tetris#readme",
+  "dependencies": {
+    "ws": "^6.1.2"
+  }
 }

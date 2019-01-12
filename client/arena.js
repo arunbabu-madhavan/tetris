@@ -8,10 +8,12 @@ class Arena{
         matrix.push(new Array(w).fill(0));
     }
     this.matrix = matrix;
+    this.events = new Events();
     }
 
 clear(){
     this.matrix.forEach(row => row.fill(0));
+    this.events.emit('matrix',this.matrix);
 }
 
 
@@ -42,6 +44,7 @@ merge(player)
             }
         });
     });
+    this.events.emit('matrix',this.matrix);
 }
 
 // sweep filled rows
@@ -61,6 +64,7 @@ sweep()
         rowCounter*=2;
         y++;
         this.matrix.unshift(row);
+        this.events.emit('matrix',this.matrix);
     }
 }
 

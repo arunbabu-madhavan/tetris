@@ -11,9 +11,15 @@ const keycodes = //[
             ;
 
 
-const tetrismanager = new TetrisManager(document);
+const tetrisManager = new TetrisManager(document);
 
-const playerElements = document.querySelectorAll('.player');
+const localTetris = tetrisManager.createPlayer();
+localTetris.run();
+localTetris.element.classList.add('local');
+
+// const connectionManager = new ConnectionManager(tetrisManager);
+
+// connectionManager.connect("ws://localhost:9000");
 
 
 

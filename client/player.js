@@ -6,6 +6,8 @@ class Player{
         this.dropCounter = 0;
         this.DROP_SLOW = 1000;
         this.DROP_FAST = 50;
+        this.gameOver = false;
+        this.events = new Events();
         
         this.dropInterval = this.DROP_SLOW; //milliseconds
         
@@ -15,19 +17,22 @@ class Player{
         this.score= 0;
 
         this.reset();
-        this.updateScore();
+        this.events.emit('score',this.score);
     }
 
     move(direction){
         this.pos.x += direction;
         if(this.arena.collide(this)){
             this.pos.x -= direction;
+            return;
         }
+        this.events.emit('pos',this.pos);
     }
 
     fall(){
         while(!this.arena.collide(this))
             this.pos.y++;
+
         this.pos.y--;
         drop();
     }
@@ -35,16 +40,19 @@ class Player{
     /* drops the piece  */
     drop() {
         this.pos.y++;
+        this.dropCounter =0;
         if(this.arena.collide(this)){
             this.pos.y--;
             this.arena.merge(this);
-        this.pos.y = 0; 
-        this.reset();
-        
-        this.arena.sweep();
-        this.updateScore();
+            this.pos.y = 0; 
+            this.reset();
+            this.arena.sweep();
+            this.events.emit('score',this.score);
+            return;
         }
-        this.dropCounter =0;
+        
+        this.events.emit('pos',this.pos);
+      
     }
   
     /*Function to rotate the piece */
@@ -64,6 +72,8 @@ class Player{
                 return;
             }
         }
+
+        this.events.emit('matrix',this.matrix);
     }
 
     _rotateMatrix(matrix, dir){
@@ -96,16 +106,21 @@ class Player{
         this.nextMatrix = this.createPiece(pieces[pieces.length * Math.random() | 0]);
         this.pos.y = 0
         this.pos.x = (this.arena.matrix[0].length/2 | 0) - (this.matrix[0].length/2 | 0);
-        if(this.arena.collide(this)){
-            this.arena.clear();
-            this.score = 0;
-            this.updateScore();
+
+        if(this.arena.collide(this)){ // Game over
+
+            this.gameOver = true;
+            // this.arena.clear();
+            // this.score = 0;
+            // this.events.emit('score',this.score);
+          
     }
+    this.events.emit('matrix',this.matrix);
+    this.events.emit('nextMatrix',this.nextMatrix);
+    this.events.emit('pos',this.pos);
     }
     
-    updateScore(){
-        this.element.querySelector(".score").innerHTML = this.score;
-    }
+
 
 
 
