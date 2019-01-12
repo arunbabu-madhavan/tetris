@@ -46,7 +46,7 @@ class Player{
             this.arena.merge(this);
             this.pos.y = 0; 
             this.reset();
-            this.arena.sweep();
+            this.arena.sweep(this);
             this.events.emit('score',this.score);
             return;
         }

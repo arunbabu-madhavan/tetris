@@ -48,7 +48,7 @@ merge(player)
 }
 
 // sweep filled rows
-sweep()
+sweep(player)
 {
     let rowCounter = 1
     outer: for(let y=this.matrix.length -1; y >= 0; --y)
