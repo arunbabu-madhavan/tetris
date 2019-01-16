@@ -34,7 +34,7 @@ class Player{
             this.pos.y++;
 
         this.pos.y--;
-        drop();
+        this.drop();
     }
 
     /* drops the piece  */

@@ -56,8 +56,12 @@ let lastTime =0;
         lastTime = time;
 
         this.player.update(deltaTime);
-        if(!this.player.gameOver)
-            this.draw();
+        this.draw();
+        if(this.player.gameOver)
+         {
+            this.element.querySelector(".gameOver").style.display = 'block'
+             return;
+         }
         requestAnimationFrame(this.update);
     }
 

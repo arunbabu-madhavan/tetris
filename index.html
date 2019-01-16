@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Plain Old Tetris</title>
+        <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
         <style>
         body{
             font-family: sans-serif;
@@ -10,6 +11,10 @@
             text-align: center;
             justify-content: center;
             display: flex;
+        }
+        .gameOver{
+            display: none;
+            font-family:'bungee'
         }
         canvas{
             border: solid .2em grey;
@@ -70,13 +75,14 @@
         <div class="game">
 <template id="player-template">
     <div class="player">
-        <div>
+    <div>
         <canvas class="nextPiece" height="180" width="150"></canvas>
         <div class="score"></div>
     </div>
     <div>
         <div class="scoret">0</div>
         <canvas class="tetris" height="420" width="240"></canvas>
+        <div class="gameOver">GAME OVER</div>
     </div>
     </div>
 </template> 

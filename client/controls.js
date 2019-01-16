@@ -5,6 +5,8 @@ class Controls{
     this.keys = {};
 
     window.addEventListener('keydown',function(e){
+        if(!tetris.player.gameOver)
+        {
       if(tetris.KEY_CODES[e.keyCode]){
         ctrl.keys[tetris.KEY_CODES[e.keyCode]] =  true;
         
@@ -21,10 +23,13 @@ class Controls{
             tetris.movePlayer();
         
         e.preventDefault();
-      }          
+      }   }       
     },false);
 
+
     window.addEventListener('keyup',function(e){
+        if(!tetris.player.gameOver)
+        {
          if(tetris.KEY_CODES[e.keyCode]){
             ctrl.keys[tetris.KEY_CODES[e.keyCode]] =  false;
             if(tetris.KEY_CODES[e.keyCode] == "down")
@@ -33,7 +38,7 @@ class Controls{
         }
             tetris.movePlayer();
             e.preventDefault();
-      }  
+      } } 
     },false);
 } 
 
